@@ -25,3 +25,4 @@ class Solution(object):
             if target - item in tmp_dict:
                 return tmp_dict[target-item], index
             tmp_dict[item] = index
+        return None
