@@ -14,6 +14,9 @@
 
 
 class Solution(object):
+    """
+    使用字典记录遍历过的元素，将数组元素的值作为字典的key可以巧妙判断
+    """
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
