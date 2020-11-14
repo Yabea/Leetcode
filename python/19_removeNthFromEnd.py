@@ -21,18 +21,20 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
-        # 先找到倒数第N个节点
-        first_head = head
-        second_head = head
-        tmp_num = 1
-        while first_head.next != None:
-            first_head = first_head.next
-            if tmp_num > n:
-                second_head = second_head.next
-            tmp_num += 1
-        # 删除第n个节点
-        if tmp_num > n:
-            second_head.next = second_head.next.next
-        else:
+        # 找到第N个结点
+        slow_node = head
+        fast_node = head
+        pre = head
+        for i in range(n):
+            fast_node = fast_node.next
+
+        while fast_node:
+            pre = slow_node
+            slow_node, fast_node = slow_node.next, fast_node.next
+
+        # 第N个结点找到了
+        if slow_node == head:
             return head.next
+        else:
+            pre.next = slow_node.next
         return head
